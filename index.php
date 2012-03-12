@@ -18,17 +18,16 @@ $results = $db->query('
 	<title>Fake Data</title>
 </head>
 <body>
-	<a href="admin/index.php">
-    
-	<a href="add.php">Add a location</a>
-	
+	<a href="admin/index.php">Admin</a>
+    <br>
+    <br>
 	<ul>
 
 	
 	<?php foreach ($results as $location) : ?>
 		<li>
 			<a href="single.php?id=<?php echo $location['id']; ?>"><?php echo $location['name']; ?></a>
-			&bull;
+			
 		</li>
 	<?php endforeach; ?>
 	</ul>

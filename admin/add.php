@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes/filter-wrapper.php';
+require_once '../includes/filter-wrapper.php';
 
 $errors = array();
 

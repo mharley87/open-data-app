@@ -1,7 +1,7 @@
 <?php
 
-require_once 'includes/filter-wrapper.php';
-require_once 'includes/db.php';
+require_once '../includes/filter-wrapper.php';
+require_once '../includes/db.php';
 
 // `->exec()` allows us to perform SQL and NOT expect results
 // `->query()` allows us to perform SQL and expect results
@@ -26,7 +26,7 @@ $results = $db->query('
 	
 	<?php foreach ($results as $location) : ?>
 		<li>
-			<a href="single.php?id=<?php echo $location['id']; ?>"><?php echo $location['name']; ?></a>
+			<a href="../single.php?id=<?php echo $location['id']; ?>"><?php echo $location['name']; ?></a>
 			&bull;
 			<a href="edit.php?id=<?php echo $location['id']; ?>">Edit</a>
 			<a href="delete.php?id=<?php echo $location['id']; ?>">Delete</a>
