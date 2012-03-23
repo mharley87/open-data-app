@@ -11,26 +11,27 @@ $results = $db->query('
 	ORDER BY name DESC
 ');
 
-?><!DOCTYPE HTML>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Fake Data</title>
-</head>
-<body>
-	<a href="admin/index.php">Admin</a>
-    <br>
-    <br>
-	<ul>
+include 'includes/theme-top.php';
+
+?>
+	<ul class="locations">
 
 	
 	<?php foreach ($results as $location) : ?>
-		<li>
-			<a href="single.php?id=<?php echo $location['id']; ?>"><?php echo $location['name']; ?></a>
-			
-		</li>
+			<li itemscope itemtype="http://schema.org/TouristAttraction">
+		<a href="single.php?id=<?php echo $location['id']; ?>" itemprop="name"><?php echo $location['name']; ?></a>
+		<span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+			<meta itemprop="latitude" content="<?php echo $location['latitude']; ?>">
+			<meta itemprop="longitude" content="<?php echo $location['longitude']; ?>">
+		</span>
+	</li>
 	<?php endforeach; ?>
 	</ul>
-	
-</body>
-</html>
+<div id="map"></div>
+
+<?php
+
+include 'includes/theme-bottom.php';
+
+?>
+

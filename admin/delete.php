@@ -9,7 +9,7 @@ if (empty($id)) {
 	exit;
 }
 
-require_once 'includes/db.php';
+require_once '../includes/db.php';
 
 $sql = $db->prepare('
 	DELETE FROM locations

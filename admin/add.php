@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	
 	if (empty($errors)) {
-		require_once 'includes/db.php';
+		require_once '../includes/db.php';
 		
 		$sql = $db->prepare('
 			INSERT INTO locations (name, longitude, latitude )
