@@ -1,7 +1,5 @@
 <?php
 
-require_once 'includes/filter-wrapper.php';
-
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if (empty($id)) {
@@ -9,52 +7,70 @@ if (empty($id)) {
 	exit;
 }
 
-
 require_once 'includes/db.php';
-
+require_once 'includes/functions.php';
 
 $sql = $db->prepare('
-	SELECT id, name, longitude, latitude
+	SELECT id, name, adr, latitude, longitude, rate_count, rate_total
 	FROM locations
 	WHERE id = :id
 ');
 
-
 $sql->bindValue(':id', $id, PDO::PARAM_INT);
-
-
 $sql->execute();
+$location = $sql->fetch();
 
-
-$results = $sql->fetch();
-
-
-if (empty($results)) {
+if (empty($location)) {
 	header('Location: index.php');
-	exit; 
+	exit;
 }
 
-$title = $results['name'];
+$title = $location['name'];
+
+if ($location['rate_count'] > 0) {
+	$rating = round($location['rate_total'] / $location['rate_count']);
+} else {
+	$rating = 0;
+}
+
+$cookie = get_rate_cookie();
 
 include 'includes/theme-top.php';
 
 ?>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title><?php echo $results['name']; ?> &middot; Locations</title>
-</head>
-<body>
-	
-	<h1><?php echo $results['name']; ?></h1>
-	<p>Longitude: <?php echo $results['longitude']; ?></p>
-    <p>Latitude: <?php echo $results['latitude']; ?></p>
-	
+<h1><?php echo $location['name']; ?></h1>
+
+<dl>
+	<dt>Average Rating</dt><dd><meter value="<?php echo $rating; ?>" min="0" max="5"><?php echo $rating; ?> out of 5</meter></dd>
+	<dt>Address</dt><dd><?php echo $location['adr']; ?></dd>
+	<dt>Longitude</dt><dd><?php echo $location['longitude']; ?></dd>
+	<dt>Latitude</dt><dd><?php echo $location['latitude']; ?></dd>
+</dl>
+
+<?php if (isset($cookie[$id])) : ?>
+
+<h2>Your rating</h2>
+<ol class="rater rater-usable">
+	<?php for ($i = 1; $i <= 5; $i++) : ?>
+		<?php $class = ($i <= $cookie[$id]) ? 'is-rated' : ''; ?>
+		<li class="rater-level <?php echo $class; ?>">★</li>
+	<?php endfor; ?>
+</ol>
+
+<?php else : ?>
+
+<h2>Rate</h2>
+<ol class="rater rater-usable">
+	<?php for ($i = 1; $i <= 5; $i++) : ?>
+	<li class="rater-level"><a href="rate.php?id=<?php echo $location['id']; ?>&rate=<?php echo $i; ?>">★</a></li>
+	<?php endfor; ?>
+</ol>
+
+<?php endif; ?>
+
 <?php
 
 include 'includes/theme-bottom.php';
 
 ?>
-
