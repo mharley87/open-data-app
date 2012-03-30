@@ -1,0 +1,111 @@
+
+html {
+	margin: 0 auto;
+	padding: 0 ;
+	background-color:#093;
+	width:100%;
+	
+}
+
+body {
+	margin:0 auto;
+	
+	display: block;
+	padding:0;
+	
+	
+	
+	
+}
+
+header {
+	margin: 0 auto;
+	padding:0;
+	background-color:#FFF;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	width: 50%;
+	text-align:center;
+}
+
+h1 { 
+	margin: 0 auto;
+	padding: 0 ;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	padding-top: 20px;
+	
+	background-color:#093;
+	width:1200px;
+	height:1110px;
+	
+
+	background-image:url(../images/baseball.png);
+	background-repeat:no-repeat;
+
+}
+
+p {
+	margin: 50px;
+	padding: 10px;
+	background-color:#FFF;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	width: 500px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+}
+
+.grid-row {
+	margin: 0 auto;
+	padding: 0;
+	display:table;
+	width:1200px;
+}
+
+.grid-unit {
+	margin: 0 auto ;
+	padding: 0;
+	display: table-cell;
+	float:left;
+	width:50%;
+}
+
+ul {
+	background-color:#FFF;
+	margin: 45px;
+	width:40%;
+	
+}
+
+ul li{ 
+	margin:0;
+	padding:10px;
+	
+	list-style-type:none;
+	
+	
+	
+}
+
+.prototype {
+	margin: 0 auto;
+	padding:0;
+	
+}
+
+.wireframe {
+	margin: 0 ;
+	padding:0;
+	width:50%;
+}
+
+img {
+	padding:45px;
+	display:block;
+}
