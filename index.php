@@ -1,5 +1,12 @@
 <?php
-
+/**
+* Display the liste and map for hte open data set
+*
+* @package mikeharley.opendataapp.ca
+* @copyright 2012 Mike Harley
+* @author Mike Harley <mharley87@hotmail.com> <mike.harley87@yahoo.com>
+* @link https://github.com/mharley87/open-data-app
+*/
 require_once 'includes/db.php';
 
 $results = $db->query('
