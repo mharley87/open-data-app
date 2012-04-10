@@ -39,18 +39,27 @@ include 'includes/theme-top.php';
 
 ?>
 
+<body>
+<div class="container">
+
+<div class="whitebox">
 <h1><?php echo $location['name']; ?></h1>
+
 
 <dl>
 	<dt>Average Rating</dt><dd><meter value="<?php echo $rating; ?>" min="0" max="5"><?php echo $rating; ?> out of 5</meter></dd>
-	<dt>Address</dt><dd><?php echo $location['adr']; ?></dd>
+	<dt class="address">Address</dt><dd><?php echo $location['adr']; ?></dd>
 	<dt>Longitude</dt><dd><?php echo $location['longitude']; ?></dd>
 	<dt>Latitude</dt><dd><?php echo $location['latitude']; ?></dd>
 </dl>
+</div>
 
+<div class="ratebox">
 <?php if (isset($cookie[$id])) : ?>
 
-<h2>Your rating</h2>
+
+
+<h2>YOUR RATING</h2>
 <ol class="rater rater-usable">
 	<?php for ($i = 1; $i <= 5; $i++) : ?>
 		<?php $class = ($i <= $cookie[$id]) ? 'is-rated' : ''; ?>
@@ -60,13 +69,20 @@ include 'includes/theme-top.php';
 
 <?php else : ?>
 
-<h2>Rate</h2>
+
+
+<h1>PLEASE RATE</h1>
 <ol class="rater rater-usable">
 	<?php for ($i = 1; $i <= 5; $i++) : ?>
+    
 	<li class="rater-level"><a href="rate.php?id=<?php echo $location['id']; ?>&rate=<?php echo $i; ?>">★</a></li>
 	<?php endfor; ?>
 </ol>
 
+</div>
+
+</div>
+</body>
 <?php endif; ?>
 
 <?php

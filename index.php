@@ -1,12 +1,5 @@
 <?php
-/**
-* Display the liste and map for hte open data set
-*
-* @package mikeharley.opendataapp.ca
-* @copyright 2012 Mike Harley
-* @author Mike Harley <mharley87@hotmail.com> <mike.harley87@yahoo.com>
-* @link https://github.com/mharley87/open-data-app
-*/
+
 require_once 'includes/db.php';
 
 $results = $db->query('
@@ -18,12 +11,17 @@ $results = $db->query('
 include 'includes/theme-top.php';
 
 ?>
+<div class="container">
 
-<button id="geo">Find Me</button>
+
+<div class="buttons">
+
 <form id="geo-form">
 	<label for="adr">Address</label>
 	<input id="adr">
 </form>
+<button id="geo">Search</button>
+</div>
 
 <ol class="locations">
 <?php foreach ($results as $location) : ?>
@@ -41,7 +39,7 @@ include 'includes/theme-top.php';
 			<meta itemprop="latitude" content="<?php echo $location['latitude']; ?>">
 			<meta itemprop="longitude" content="<?php echo $location['longitude']; ?>">
 		</span>
-		<meter value="<?php echo $rating; ?>" min="0" max="5"><?php echo $rating; ?> out of 5</meter>
+		
 		<ol class="rater">
 		<?php for ($i = 1; $i <= 5; $i++) : ?>
 			<?php $class = ($i <= $rating) ? 'is-rated' : ''; ?>
@@ -53,7 +51,7 @@ include 'includes/theme-top.php';
 </ol>
 
 <div id="map"></div>
-
+</div>
 <?php
 
 include 'includes/theme-bottom.php';

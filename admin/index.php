@@ -1,6 +1,12 @@
 <?php
 
-require_once '../includes/filter-wrapper.php';
+require_once '../includes/users.php';
+
+if (!user_is_signed_in()) {
+	header('Location: sign-in.php');
+	exit;
+}
+
 require_once '../includes/db.php';
 
 // `->exec()` allows us to perform SQL and NOT expect results
@@ -18,7 +24,8 @@ $results = $db->query('
 	<title>Fake Data</title>
 </head>
 <body>
-	
+	<a href="sign-out.php">Sign Out</a>
+    
 	<a href="add.php">Add a location</a>
 	
 	<ul>
