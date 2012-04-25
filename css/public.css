@@ -1,3 +1,15 @@
+ /*small description: Displays the list and the map for the Open Data
+*
+*@package
+*@copyright 2012 Mike Harley
+*@author Mike Harley <mike.harley87@yahoo.com>
+*@link https:git@github.com:mharley87/open-data-app.git
+*@link https::<http://ottawa-baseball.phpfogapp.com/index.php>
+*@license New BSD Licence
+*@version 1.0.0
+ */
+
+
 html {
 	margin:0;
 	padding:0;
@@ -20,6 +32,7 @@ body {
 	margin:0 auto;
 	padding:0;
 	width:1000px;
+	
 }
 
 .container {
@@ -27,7 +40,7 @@ body {
 	margin:0 auto;
 	padding:0;
 	width: 1000px;
-	height: 550px;
+	min-height: 550px;
 	position:relative;
 	
 }
@@ -378,4 +391,67 @@ meter {
 	font-family: 'Londrina Solid', cursive;
 	font-size:36px;
 	text-align:center
+}
+
+.items {
+	
+	margin:0 auto;
+	padding:30px;
+	width:60%;
+	background-color:#FFF;
+	color: #000;
+	font-size: 16px;
+	font-family: 'Londrina Solid', cursive;
+	border-radius:10px;
+}
+
+.items a {
+	color:#000;
+}
+
+.button-two a{
+display: block; 
+  width: 60px; 
+  height: 25px; 
+  background: #F00; 
+  padding: 5px; 
+  text-align: center; 
+  border-radius: 5px; 
+  color: white; 
+  font-weight: bold; 
+  text-decoration:none;
+  font-family: 'Londrina Solid', cursive;
+  
+  position:absolute;
+  top:-130px;
+  right:5px
+}
+
+.button-three a{
+	display: block; 
+  width: 135px; 
+  height: 25px; 
+  background: #000;  
+  padding: 5px; 
+  text-align: center; 
+  border-radius: 5px; 
+  color: white; 
+  font-weight: bold; 
+  text-decoration:none;
+  font-family: 'Londrina Solid', cursive;
+  
+  position:absolute;
+    position:absolute;
+  top:0px;
+  left:13px
+}
+
+.admin1 {
+	margin:10px 20px 0 0;
+	padding:0px;
+	float:right;
+	font-family: 'Londrina Solid',cursive;
+    font-size: 20px;
+	text-decoration:none;
+	color:#000;
 }
